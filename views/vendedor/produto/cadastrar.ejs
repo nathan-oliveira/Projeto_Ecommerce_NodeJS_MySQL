@@ -1,0 +1,161 @@
+<% include ../../customs/client/cabecalho %>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb btn-sm">
+                <li class="breadcrumb-item"><a href="<%= url %>/">Home</a></li>
+                <li class="breadcrumb-item"><a href="<%= url %>/produtos/listar">Produtos</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Cadastrar</li>
+              </ol>
+            </nav>
+          </div>
+          <div class="col-sm-12" style="margin-top: -0.5%;">
+<% if(erros.length > 0) { %>
+          <div class="alert alert-danger alert-dismissible fade show">
+            <strong>Atenção!</strong>
+            <hr style="margin-top: 1%; margin-bottom: 1%;">
+            <ul style="margin-left: 3%;">
+<% for (var i = 0; i < erros.length; i++) { %>
+              <li><%= erros[i].msg %></li>
+<% } %>
+            </ul>
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+          </div>
+<% } %>
+            <form class="form" action="<%= url %>/produto/salvar" role="form" autocomplete="off" id="form" novalidate="" method="POST" enctype="multipart/form-data">
+              <input type="hidden" name="checker" id="checker" value="<%= checker %>">
+              <fieldset>
+                <legend>Cadastrar Produto</legend>
+                <div class="row">
+                  <div class="col-sm-12" style="margin-top: 0.5%;">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">Produto</span>
+                      </div>
+                      <input type="text" name="produto" id="produto" class="form-control" placeholder="Nome do produto" maxlength="254" required="">
+                    </div>
+                  </div>
+                  <div class="col-sm-12" style="margin-top: -0.5%">
+                    <div class="input-group mb-3">
+                      <textarea class="form-control" name="descricao" id="descricao" rows="3" placeholder="Descrição do produto" required=""></textarea>
+                    </div>
+                  </div>
+                  <div class="col-sm-4" style="margin-top: -0.5%">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text">Categoria</label>
+                      </div>
+                      <select class="custom-select" name="categoria" id="categoria" required="">
+<% for (var i = 0; i < categoria.length; i++) { %>
+                        <option value="<%= categoria[i].id %>"><%= categoria[i].descricao %></option>
+<% } %>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-sm-4" style="margin-top: -0.5%">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">Preço</span>
+                      </div>
+                      <input type="text" class="form-control money2" name="valor" id="valor" placeholder="R$ 0,00" maxlength="9" required="">
+                    </div>
+                  </div>
+                  <div class="col-sm-4" style="margin-top: -0.5%">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text">Time</label>
+                      </div>
+                      <select class="custom-select" name="time" id="time" required="">
+<% for (var i = 0; i < time.length; i++) { %>
+                        <option value="<%= time[i].id %>"><%= time[i].nome %></option>
+<% } %>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-sm-4" style="margin-top: -0.5%">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">1º Imagem</span>
+                      </div>
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input upload" name="imagem1" id="imagem1" onchange="readURL1(this);" accept="jpg, jpeg, png" required="">
+                        <label class="custom-file-label" for="imagem1">Imagem do Produto</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4" style="margin-top: -0.5%">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">2º Imagem</span>
+                      </div>
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input upload" name="imagem2" id="imagem2" onchange="readURL2(this);" accept="jpg, jpeg, png" required="">
+                        <label class="custom-file-label" for="imagem2">Imagem do Produto</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4" style="margin-top: -0.5%">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">3º Imagem</span>
+                      </div>
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input upload" name="imagem3" id="imagem3" onchange="readURL3(this);" accept="jpg, jpeg, png" required="">
+                        <label class="custom-file-label" for="imagem3">Imagem do Produto</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <fieldset>
+                      <legend class="preview">Preview - Imagens dos Produtos</legend>
+                      <div class="row" style="margin-bottom: 3%;">
+                        <div class="col-sm-4 text-center" style="margin-top: 2%;">
+                          <h5>1º Imagem</h5>
+                          <img id="upload_imagem1" width="238" src="<%= url %>/img/modelo1.png" alt="your image" />
+                        </div>
+                        <div class="col-sm-4 text-center" style="margin-top: 2%;">
+                          <h5>2º Imagem</h5>
+                          <img id="upload_imagem2" width="238" src="<%= url %>/img/modelo2.png" alt="your image" />
+                        </div>
+                        <div class="col-sm-4 text-center" style="margin-top: 2%;">
+                          <h5>3º Imagem</h5>
+                          <img id="upload_imagem3" width="238" src="<%= url %>/img/modelo3.png" alt="your image" />
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+              </fieldset>
+              <div class="col-xs-6">
+                <a href="<%= url %>/produtos/listar" class="btn btn-primary btn-sm"><i class="fas fa-hand-point-left"></i>&nbsp;Voltar</a>
+              </div>
+              <div class="col-xs-6 text-right">
+                <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-check-circle"></i>&nbsp;Salvar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        if($('#checker').val() != 0 || erros.length > 0) {
+          $('#checker').val('<%= checker %>');
+
+          $('#upload_imagem1').removeAttr("src").attr("src", "<%= url %>/uploads/<%= data.url1 %>");
+          $('#upload_imagem2').removeAttr("src").attr("src", "<%= url %>/uploads/<%= data.url2 %>");
+          $('#upload_imagem3').removeAttr("src").attr("src", "<%= url %>/uploads/<%= data.url3 %>");
+
+          $('#produto').val('<%= data.nome %>');
+          $('#descricao').val('<%= data.descricao %>');
+          $('#categoria').val('<%= data.categoria %>');
+          $('#time').val('<%= data.time_id %>');
+          $('#valor').val('<%= data.preco %>')
+
+          $('#imagem1').removeAttr("required")
+          $('#imagem2').removeAttr("required")
+          $('#imagem3').removeAttr("required")
+        }
+      </script>
+
+<% include ../../customs/client/rodape %>

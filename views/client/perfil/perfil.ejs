@@ -1,0 +1,119 @@
+<% include ../../customs/client/cabecalho %>
+      <div class="container main-secction">
+        <div class="row">
+          <div class="col-sm-12">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb btn-sm">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Minha conta</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 d-flex flex-column justify-content-center">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="rounded shadow shadow-sm">
+                  <div class="background-carrinho" style="padding: 1rem 1rem 0.7rem 1rem !important;">
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <h5 class="text-center"><b>Minhas Informações</b></h5>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12" style="margin-bottom: 20px">
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <div class="col-sm-12" style="padding-left: 40px;">
+                            <div class="row">
+                              <div class="col-sm-12 text-center">
+                                <br>
+                                <img class="img_foto" width="190px" src="https://www.jamf.com/jamf-nation/img/default-avatars/generic-user-purple.png" class="rounded-circle">
+                              </div>
+                              <div class="col-sm-12 btn-foto text-center" style="margin-top: 9%;">
+                                <button id="btn-contact" (click)="clearModal()" data-toggle="modal" data-target="#contact" class="btn btn-primary btn-block follow">Alterar foto</button>
+                              </div>
+                            </div>
+                            <table class="table table3 table-bordered text-center" style="margin-top: 10%;">
+                              <!-- data nasc -->
+                              <thead class="thead-light">
+                                <tr>
+                                  <th scope="col">Data de nascimento</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>&nbsp; 17/09/1999</td>
+                                </tr>
+                              </tbody>
+                              <thead class="thead-light">
+                                <tr>
+                                  <th scope="col">CPF</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>&nbsp; XXX.XXX.XXX-XX</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                        <div class="col-sm-5 col-md-9">
+                          <div class="col-sm-12">
+                            <table class="table table2 table-bordered" style="margin-top: 2%;">
+                              <thead class="thead-light">
+                                <tr>
+                                  <th>Nome</th>
+                                </tr>
+                                <tr>
+                                  <td>Nathan Oliveira</td>
+                                </tr>
+                                <tr>
+                                  <th scope="col">E-mail</th>
+                                </tr>
+                                <tr>
+                                  <td>Natha***************@gmail.com</td>
+                                </tr>
+                                <tr>
+                                  <th scope="col">Cidade</th>
+                                </tr>
+                                <tr>
+                                  <td>Marília - SP</td>
+                                </tr>
+                                <tr>
+                                  <th scope="col">Logradouro</th>
+                                </tr>
+                                <tr>
+                                  <td>Rua: Antônio rosa oliveira filho Nº41</td>
+                                </tr>
+                                <tr>
+                                  <th scope="col">Torcedor</th>
+                                </tr>
+                                <tr>
+                                  <td> Corinthians</td>
+                                </tr>
+                              </thead>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="col-xs-6">
+                          <a href="<%= url %>/" class="btn btn-primary" style="margin-top: 0.3% !important;">Voltar</a>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                          <a href="<%= url %>/conta/editar" class="btn btn-primary" style="margin-top: 0.3% !important;">Editar Perfil</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+<% include ../../customs/client/rodape %>

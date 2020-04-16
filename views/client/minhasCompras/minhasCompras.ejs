@@ -1,0 +1,93 @@
+<% include ../../customs/client/cabecalho %>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb btn-sm">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Minhas Compras</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="background-carrinho" style="padding: 1rem 1rem 0.7rem 1rem !important;">
+              <div class="row">
+                <div class="col-md-12">
+                  <h5 class="text-center"><b><i class="fa fa-shopping-cart fa-1x" aria-hidden="true"></i>&nbsp;Histórico de compras</b></h5>
+                </div>
+              </div>
+            </div>
+            <form class="form shadow shadow-sm" autocomplete="off" id="form" method="POST">
+              <div class="row">
+                <div class="card-body">
+                  <table class="table table-bordered" id="table">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col">Produto</th>
+                        <th>Qtde</th>
+                        <th>Valor</th>
+                        <th class="text-center" style="width: 6%"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php for ($i=0; $i<16; $i++) { ?>
+                        <tr>
+                          <td>Tênis</td>
+                          <td>2</td>
+                          <td>R$ 199,90</td>
+                          <td class="text-center">
+                            <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#centralModalWarningDemo">
+                              <i class="fas fa-eye"></i>
+                            </button>
+                          </td>
+                        </tr>
+                      <?php } ?>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Central Modal Warning Demo-->
+      <div class="modal fade" id="centralModalWarningDemo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true" style="margin-top: 8%;">
+        <div class="modal-dialog modal-notify modal-warning" role="document">
+          <!--Content-->
+          <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+              <h5 class="heading">Produto ...</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" class="white-text">&times;</span>
+              </button>
+            </div>
+            <!--Body-->
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-4 text-center">
+                  <img src="https://cdn.awsli.com.br/600x450/820/820921/produto/40976281/7244e926f6.jpg" class="img-fluid z-depth-1-half rounded-circle">
+                  <div style="height: 10px"></div>
+                  <p class="title mb-0">Preço: $100,00</p>
+                  <p class="text-muted " style="font-size: 13px">Quantidade: <br> 20 produtos</p>
+                </div>
+                <div class="col-8">
+                  <strong>Descrição do produto:</strong>
+                  <p class="card-text">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, Lorem ipsum dolor sit amet, consectetur adipisicing elit, Lorem ipsum dolor sit amet, consectetur adipisicing elit, Lorem ipsum dolor sit amet, consectetur adipisicing elit....</p>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!--Footer-->
+            <div class="modal-footer justify-content-left">
+              <a type="button" class="btn btn-primary" style="color: #fff;">Ver mais!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+<% include ../../customs/client/rodape %>

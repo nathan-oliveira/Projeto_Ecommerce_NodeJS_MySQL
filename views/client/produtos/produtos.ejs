@@ -1,0 +1,186 @@
+<% include ../../customs/client/cabecalho %>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb btn-sm">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Produtos</li>
+                <li class="breadcrumb-item active" aria-current="page" id="breadcrum_li"></li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3" style="margin-top: 0.5%">
+            <fieldset>
+              <legend style="text-align: center !important;">Pesquisar</legend>
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Pesquisar" aria-label="Pesquisar" aria-describedby="Pesquisar">
+                <div class="input-group-append">
+                  <button class="btn btn-blue" type="button">
+                    <i class="fas fa-search" style="color: #fff !important;"></i>
+                  </button>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend style="text-align: center !important;">Preço Máximo</legend>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">R$</span>
+                    </div>
+                    <input type="number" class="form-control">
+                    <div class="input-group-append">
+                      <span class="input-group-text">.00</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12" style="margin-top: -5px;">
+                  <button type="button" class="btn btn-blue btn-block" style="color: #fff !important;"><i class="fas fa-filter"></i>&nbsp;Filtrar</button>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend style="text-align: center !important;">Categorias</legend>
+                <div class="row" style="cursor: pointer;">
+                  <div class="col-md-12">
+                    <ul class="list-group">
+                      <a class="list-group-item active" ref_sys="variados">
+                        <input type="hidden" value="variados" id="variados">
+                        <li class="active" style="display: block;">
+                          Produtos variados
+                        </li>
+                      </a>
+                      <a class="list-group-item active2" ref_sys="relogio">
+                        <input type="hidden" value="relogio" id="relogio">
+                        <li class="active" style="display: block;">
+                          Relógio
+                        </li>
+                      </a>
+                      <a class="list-group-item active2" ref_sys="camiseta">
+                        <input type="hidden" value="camiseta" id="camiseta">
+                        <li class="active" style="display: block;">
+                          Camiseta
+                        </li>
+                      </a>
+                      <a class="list-group-item active2" ref_sys="tenis">
+                        <input type="hidden" value="tenis" id="tenis">
+                        <li class="active" style="display: block;">
+                          Tênis
+                        </li>
+                      </a>
+                    </ul>
+                  </div>
+                </div>
+            </fieldset>
+          </div>
+          <div class="col-sm-9">
+            <div class="tenis invisivel">
+              <div class="product">
+                <div class="img-container zoom">
+                  <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?dpr=1&auto=compress,format&fit=crop&w=1400&h=&q=80&cs=tinysrgb&crop=">
+                </div>
+                <div class="product-info">
+                  <div class="product-content">
+                    <br>
+                    <h1>Nike Airmax</h1>
+                    <br>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit ariaturLorem ipsum dolor sit amet consectetur adipisicing elit ariaturLorem ipsum dolor sit amet consectetur adipisicing elit ariatur....</p>
+                    <div class="buttons">
+                      <a onclick="carrinho()" class="button add" href="#">Adicionar no carrinho</a>
+                      <span class="button" id="price">$59,99</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="relogios">
+              <div class="product">
+                <div class="img-container zoom">
+                  <img src="https://images.unsplash.com/photo-1434493907317-a46b5bbe7834?dpr=1&auto=compress,format&fit=crop&w=1500&h=&q=80&cs=tinysrgb&crop=">
+                </div>
+                <div class="product-info">
+                  <div class="product-content">
+                    <br>
+                    <h1>Apple Watch 3</h1>
+                    <br>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit ariaturLorem ipsum dolor sit amet consectetur adipisicing elit ariaturLorem ipsum dolor sit amet consectetur adipisicing elit ariatur....</p>
+                    <div class="buttons">
+                      <a onclick="carrinho()" class="button add">Adicionar no carrinho</a>
+                      <span class="button" id="price">$129,99</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        function carrinho() {
+          Swal.fire({
+            width: 400,
+            icon: 'success',
+            title: 'Produto',
+            text: 'Adicionado no carrinho com sucesso!'
+          })
+        }
+
+        $(function() {
+          cliqueMenu();
+          document.getElementById("variados").click();
+        });
+
+        function cliqueMenu() {
+          $('#menu-principal a, .list-group a').click(function() {
+            $('.list-group a').removeClass('active')
+            $('.list-group a[ref_sys='+$(this).attr('ref_sys')+']').addClass('active')
+
+            switch ($(this).attr('ref_sys')) {
+              case $("#variados").val(): variados(); break;
+              case $("#relogio").val(): relogio(); break;
+              case $("#camiseta").val(): camiseta(); break;
+              case $("#tenis").val(): tenis(); break;
+              default:
+                break;
+            }
+
+            return false;
+
+          })
+        }
+
+        function variados() {
+          $(".invisivel").removeClass('invisivel');
+          $('#breadcrum_li').html('Produtos Variados');
+        }
+
+        function relogio() {
+          $('.relogios').removeClass('invisivel');
+          $('.tenis').addClass('invisivel');
+          $('.camisetas').addClass('invisivel');
+
+          $('#breadcrum_li').html('Relógios');
+        }
+
+        function camiseta() {
+          $('.relogios').addClass('invisivel');
+          $('.tenis').addClass('invisivel');
+          $('.camisetas').removeClass('invisivel');
+
+          $('#breadcrum_li').html('Camisetas');
+        }
+
+        function tenis() {
+          $('.tenis').removeClass('invisivel')
+          $('.relogios').addClass('invisivel');
+          $('.camisetas').addClass('invisivel');
+
+          $('#breadcrum_li').html('Tênis');
+        }
+      </script>
+<% include ../../customs/client/rodape %>

@@ -1,0 +1,46 @@
+<% include ../customs/client/cabecalho %>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 min-vh-90 d-flex flex-column justify-content-center">
+            <div class="row">
+              <div class="col-lg-6 col-md-8 mx-auto">
+                <div class="card rounded shadow shadow-sm">
+                  <div class="card-header background-card" style="padding: 1.3rem 1.25rem !important;">
+                      <h3 class="mb-0 brand">Acessar Conta!</h3>
+                  </div>
+                  <form class="form" action="<%= url %>/login" role="form" autocomplete="off" id="form" novalidate="" method="POST">
+                    <div class="card-body">
+                      <br>
+<% if(erros.validacao) { %>
+                      <div style="margin-top: -5% !important;" class="alert alert-danger text-center" role="alert"><%= erros.validacao %></div>
+<% } %>
+                      <div class="form-group">
+                          <label for="cpf">CPF</label>
+                          <input type="text" class="form-control form-control-lg rounded-0" name="cpf" id="cpf" required="">
+                          <div class="invalid-feedback">Informe seu CPF!</div>
+                      </div>
+                      <div class="form-group">
+                          <label>Senha</label>
+                          <input type="password" class="form-control form-control-lg rounded-0" id="senha" name="senha" required="" autocomplete="new-password">
+                          <div class="invalid-feedback">Informe sua Senha!</div>
+                      </div>
+                      <br>
+                    </div>
+                    <div class="card-footer">
+                      <div class="row">
+                        <div class="col-md-6" style="margin-top: 1%;">
+                          <a href="<%= url %>/cadastrar" style="color: #242424;">Criar um conta agora!</a>
+                        </div>
+                        <div class="col-md-6">
+                          <button type="submit" class="btn btn-dark btn-md float-right brand-button" style="margin-top: 0.3% !important;">Entrar</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+<% include ../customs/client/rodape %>

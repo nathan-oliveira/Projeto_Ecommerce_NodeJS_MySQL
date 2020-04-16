@@ -1,0 +1,96 @@
+<% include ../../customs/client/cabecalho %>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb btn-sm">
+                <li class="breadcrumb-item"><a href="<%= url %>/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Produtos</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-2" style="margin-bottom: 7px;">
+            <a href="<%= url %>/produtos/cadastrar" class="btn btn-primary btn-block" style="margin-top: 0.3% !important; color: #fff;"><i class="fas fa-plus"></i>&nbsp;Adicionar</a>
+          </div>
+        </div>
+        <fieldset>
+          <legend>Produtos</legend>
+          <table id="tabela" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+              <tr>
+                <th>Produto</th>
+                <th style="width: 12%">Valor</th>
+                <th style="width: 18%">Categoria</th>
+                <th style="width: 18%">Time</th>
+                <th style="width: 134px;"></th>
+              </tr>
+            </thead>
+          </table>
+        </fieldset>
+      </div>
+      <script type="text/javascript">
+        $.fn.DataTable.ext.pager.numbers_length = 5;
+        $('#tabela').dataTable({
+          responsive: true,
+          sPaginationType: "simple_numbers",
+          ajax: '<% url %>/produtos/datatable',
+          deferRender: true,
+          processing: true,
+          columns: [{data: "nome"},{data: "preco"},{data: "categoria"},{data: "time"}, {data:"Actions", render: function (data, type, row) {
+              return '<button class="btn btn-xs btn-dark" onclick="editar(\''+row.id+'\')"><i class="fas fa-edit"></i>&nbsp;Editar<\/button> <button class="btn btn-xs btn-danger" onclick="excluir(\''+row.id+'\')"><i class="fas fa-trash-alt"><\/i>&nbsp;Excluir<\/button>'
+            }}],
+          oLanguage: {
+              sLengthMenu: "_MENU_",
+              sZeroRecords: "Nenhum registro encontrado",
+              sInfo: "_START_/_END_ (_TOTAL_)",
+              sInfoEmpty: "",
+              sInfoFiltered: "(_MAX_)",
+              sSearch: "",
+              oPaginate: {
+                  sPrevious: "<",
+                  sNext: ">"
+              },
+              sProcessing: '<div class="spinner"><\/div>'
+          },
+          aaSorting: [[0, 'asc']],
+          aoColumnDefs: [
+              {className: "col-right", targets: [1]},
+              {className: "col-center", targets: [4]}
+          ]
+        })
+
+        function editar(id) {
+          window.location.href = '<%= url %>/produto/editar/'+id
+        }
+
+        function excluir(id) {
+          Swal.fire({
+            title: 'Você tem certeza?',
+            type: 'warning',
+            width: 400,
+            text: "Você não poderá reverter isso!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            cancelButtonText: 'Não. Retornar!',
+            confirmButtonText: 'Sim. Prosseguir!'
+          }).then((result) => {
+            if (result.value) {
+              setTimeout(function(){ 
+                window.location.href = '<%= url %>/produto/excluir/'+id
+              }, 1000);
+              Swal.fire({
+                title: 'Deletado!',
+                text: 'Time Removido com sucesso!',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1500
+              })
+            }
+          })
+        }
+      </script>
+<% include ../../customs/client/rodape %>

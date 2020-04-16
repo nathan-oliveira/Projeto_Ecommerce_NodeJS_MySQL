@@ -1,0 +1,112 @@
+/* Tema dark */
+.custom-switch input, label {
+    cursor: pointer;
+}
+
+[data-tema="dark"] {
+    background-color: #111 !important;
+    color: #eee;
+}
+
+[data-tema="dark"] .bg-light {
+    background-color: #333 !important;
+}
+
+[data-tema="dark"] .bg-white {
+    background-color: #000 !important;
+}
+
+[data-tema="dark"] .bg-black {
+    background-color: #eee !important;
+}
+
+/* configuracao do menu */
+body{
+    background:#f9f9f9;
+}
+#wrapper{
+    padding:30px 15px;
+}
+.navbar-expand-lg .navbar-nav.side-nav{
+    flex-direction: column;
+}
+.body_edits {
+    padding-left: 15.3% !important;
+}
+
+.content_superior {
+    width: 100%;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+
+.collapse_superior {
+    margin-right: -12.2% !important;
+}
+
+@media(min-width:992px) {
+    .leftmenutrigger{
+        margin-right: 20px !important;
+        display: block;
+        cursor: pointer;
+    }
+    .navbar-nav.side-nav.open {
+        left:0;
+    }
+    .navbar-nav.side-nav{
+        background: #585f66;
+        box-shadow: 2px 1px 2px rgba(0,0,0,.1);
+        position:fixed;
+        top:56px;
+        flex-direction: column!important;
+        left:-220px;
+        width:200px;
+        overflow-y:auto;
+        bottom:0;
+        overflow-x:hidden;
+        padding-bottom:40px
+    }
+}
+
+@media(max-width:991px) {
+    .diplaytrigger {
+        display: none !important;
+    }
+}
+
+.animate{
+    -webkit-transition:all .3s ease-in-out;
+    -moz-transition:all .3s ease-in-out;
+    -o-transition:all .3s ease-in-out;
+    -ms-transition:all .3s ease-in-out;
+    transition:all .3s ease-in-out
+}
+
+/* Form Login */
+.modal-dialog {
+    margin-top: 10%;
+    width: 300px;
+}
+.modal-footer {
+    height: 70px;
+    margin: 0;
+}
+.modal-footer .btn {
+    font-weight: bold;
+}
+.modal-footer .progress {
+    display: none;
+    height: 32px;
+    margin: 0;
+}
+.input-group-addon {
+    color: #fff;
+    background: #3276B1;
+}
+
+.padding-owner {
+    padding-left: 15px;
+
+}

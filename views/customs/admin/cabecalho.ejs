@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Berkshire Swash' rel='stylesheet'>
+
+        <!-- Font Awesome -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js" integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
+
+        <!-- Style CSS -->
+        <link href="/css/Admin.css" rel="stylesheet">
+
+        <title>Criando uma Estrutura MVC</title>
+    </head>
+    <body data-tema="light">
+      <!-- Inico do menu -->
+        <div class="animate" id="wrapper">
+            <nav class="navbar header-top fixed-top navbar-expand-lg  navbar-dark bg-dark">
+                <div class="container animate" id="menu_superior">
+                    <span class="navbar-toggler-icon leftmenutrigger diplaytrigger"></span>
+                    <a class="navbar-brand" href="<% url %>/owner" id="logo_edits">Nathan</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav animate side-nav padding-owner">
+                            <li class="nav-item" style="margin-top: 2%;">
+                                <a class="nav-link" href="<% url %>/owner">Dashboard</a>
+                            </li>
+                            <li class="nav-item" >
+                                <a class="nav-link" href="<% url %>/owner">Produtos</a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ml-md-auto d-md-flex">
+                            <li class="nav-item">
+                                <a class="nav-link" href="<% url %>/logout"><i class="fas fa-sign-in-alt"></i>&nbsp;Sair</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!-- Fim do menu -->
+        <section class="animate" id="body_edits" style="margin-top: 10px;">

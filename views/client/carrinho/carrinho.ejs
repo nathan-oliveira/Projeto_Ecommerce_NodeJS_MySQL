@@ -1,0 +1,71 @@
+<% include ../../customs/client/cabecalho %>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 d-flex flex-column justify-content-center">
+            <br>
+            <div class="row">
+              <div class="col-lg-9 col-md-8 mx-auto">
+                <div class="card card-border rounded shadow shadow-sm">
+                  <div class="card-header background-carrinho" style="padding: 1rem 1rem 0.7rem 1rem !important;">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <h5 class="text-h5"><b><i class="fa fa-shopping-cart fa-1x" aria-hidden="true"></i>&nbsp;Shopping Cart</b></h5>
+                      </div>
+                      <div class="col-md-6 text-right">
+                        <button type="button" class="btn btn-primary btn-sm">
+                          <i class="fas fa-share">&nbsp;</i> Continue comprando
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <form class="form" autocomplete="off" id="carrinho" method="POST">
+                    <div class="card-body" style="margin-left: 8px">
+                      <div class="hr-carrinho"></div>
+                      <div class="carrinho-body">
+                        <div class="row">
+                          <div class="col-sm-2">
+                            <img class="img-responsive" src="http://placehold.it/100x70">
+                          </div>
+                          <div class="col-sm-5 col-md-6 desc-edit">
+                            <h5 class="product-name">
+                              <strong>Produto</strong>
+                            </h5>
+                            <h5>
+                              <small>Descrição do protudo ...</small>
+                            </h5>
+                          </div>
+                          <div class="col-sm-5 col-md-4">
+                            <div class="row">
+                              <div class="col-sm-7 text-center">
+                                <h5><strong>25.00 <span class="text-muted">x</span></strong></h5>
+                                <input maxlength="3" type="text" class="form-control input-sm" placeholder="Qtde..">
+                              </div>
+                              <div class="col-sm-5 text-left" style="margin-top: 13%;">
+                                <button type="button" class="btn btn-danger btn-sm">
+                                  <i class="fas fa-trash-alt"></i> excluir
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="hr-carrinho"></div>
+                    </div>
+                    <div class="card-footer">
+                      <div class="row" style="margin-top: 1%; margin-bottom: 1%;">
+                        <div class="col-md-6" style="margin-top: 1%;">
+                          <h5 class="float-right"><i class="fas fa-shopping-bag">&nbsp;</i>&nbsp;Total <b>$50,00</b></h5>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-success float-left" id="btnLogin" style="margin-top: 0.3% !important;"><i class="fas fa-shopping-basket"></i>&nbsp;Comprar agora</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+<% include ../../customs/client/rodape %>

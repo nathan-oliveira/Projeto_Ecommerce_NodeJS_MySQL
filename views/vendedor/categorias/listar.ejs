@@ -1,0 +1,112 @@
+<% include ../../customs/client/cabecalho %>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb btn-sm">
+                <li class="breadcrumb-item"><a href="<%= url %>/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Cadastrar Categoria</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+<% if(erros.existe) { %>
+        <div class="alert alert-danger alert-dismissible fade show">
+          <strong>Atenção!</strong>
+          <hr style="margin-top: 1%; margin-bottom: 1%;">
+          <ul style="margin-left: 3%;">
+            <li><%= erros.existe %></li>
+          </ul>
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+<% } %>
+        <fieldset>
+          <legend>Cadastrar</legend>
+          <form class="form" action="<%= url %>/categorias/cadastrar" role="form" autocomplete="off" id="form" novalidate="" method="POST">
+            <div class="row" style="margin-bottom: -2%;">
+              <div class="col-sm-10">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="nome">Nome</span>
+                  </div>
+                  <input type="text" class="form-control form-control-md rounded-0" name="nome" id="nome" required="" placeholder="Nome da Categoria">
+                </div>
+              </div>
+              <div class="col-sm-2">
+                <input type="hidden" name="checker" id="checker" value="<%= checker %>">
+                <button type="submit" class="btn btn-primary btn-block" style="margin-top: 0.3% !important; color: #fff;"><i class="fas fa-plus"></i>&nbsp;Adicionar</button>
+              </div>
+            </div>
+          </form>
+        </fieldset>
+        <fieldset>
+          <legend>Categorias</legend>
+          <table id="tabela" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+              <tr>
+                <th>Produto</th>
+                <th style="width: 60px;"></th>
+              </tr>
+            </thead>
+          </table>
+        </fieldset>
+      </div>
+      <script type="text/javascript">
+        $.fn.DataTable.ext.pager.numbers_length = 5;
+        $('#tabela').dataTable({
+          responsive: true,
+          sPaginationType: "simple_numbers",
+          ajax: '<% url %>/categorias/datatable',
+          deferRender: true,
+          processing: true,
+          columns: [{data: "descricao"}, {data:"Actions", render: function (data, type, row) {
+              return '<button class="btn btn-xs btn-danger" onclick="excluir(\''+row.id+'\')"><i class="fas fa-trash-alt"><\/i>&nbsp;Excluir<\/button>'
+            }}],
+          oLanguage: {
+              sLengthMenu: "_MENU_",
+              sZeroRecords: "Nenhum registro encontrado",
+              sInfo: "_START_/_END_ (_TOTAL_)",
+              sInfoEmpty: "",
+              sInfoFiltered: "(_MAX_)",
+              sSearch: "",
+              oPaginate: {
+                  sPrevious: "<",
+                  sNext: ">"
+              },
+              sProcessing: '<div class="spinner"><\/div>'
+          },
+          aaSorting: [[1, 'asc']],
+          aoColumnDefs: [
+              {className: "col-center", targets: [1]}
+          ]
+        })
+
+        function excluir(id) {
+          Swal.fire({
+            title: 'Você tem certeza?',
+            type: 'warning',
+            width: 400,
+            text: "Você não poderá reverter isso!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            cancelButtonText: 'Não. Retornar!',
+            confirmButtonText: 'Sim. Prosseguir!'
+          }).then((result) => {
+            if (result.value) {
+              setTimeout(function(){ 
+                window.location.href = '<%= url %>/categorias/excluir/'+id
+              }, 1000);
+              Swal.fire({
+                title: 'Deletado!',
+                text: 'Categoria Removida com sucesso!',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1500
+              })
+            }
+          })
+        }
+      </script>
+<% include ../../customs/client/rodape %>

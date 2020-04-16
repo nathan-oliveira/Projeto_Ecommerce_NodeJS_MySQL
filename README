@@ -1,0 +1,3 @@
+ALTER TABLE `fut_db`.`produto`
+CHANGE COLUMN `preco` `preco` DECIMAL(9,2) NOT NULL ;
+
