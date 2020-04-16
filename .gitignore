@@ -1,6 +1,7 @@
 .idea
 /logs
 /node_modules
+/app/public/uploads
 .env
 package-lock.json
 npm-debug.log
