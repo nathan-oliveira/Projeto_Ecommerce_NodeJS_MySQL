@@ -1,3 +1,96 @@
 <% include customs/client/cabecalho %>
+      <div class="container display-none" id="content">
+        <div class="row">
+          <!-- Menu2 -->
+          <div class="menu2 fixed-top" id="menu2" style="margin-top: 4.5%;">
+            <nav class="navbar navbar-expand-lg navbar-while" id="menupesquisa">
+                <div class="container">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Pesquisar" aria-label="Pesquisar" aria-describedby="Pesquisar">
+                    <div class="input-group-append">
+                      <button class="btn btn-blue" type="button">
+                        <i class="fas fa-search" style="color: #fff !important; font-weight: 500;"></i> 
+                        <b style="color: #fff !important; font-weight: 500;">Pesquisar</b>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+            </nav>
+          </div>
+          <div class="col-sm-12" style="margin-top: 4%;">
+            <div class="tenis">
+              <div class="product">
+                <div class="img-container zoom">
+                  <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?dpr=1&auto=compress,format&fit=crop&w=1400&h=&q=80&cs=tinysrgb&crop=">
+                </div>
+                <div class="product-info">
+                  <div class="product-content">
+                    <h1>Nike Airmax</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit ariaturLorem ipsum dolor sit amet consectetur adipisicing elit ariaturLorem ipsum dolor sit amet consectetur adipisicing elit ariatur....</p>
+                    <div class="buttons">
+                      <a onclick="carrinho()" class="button add" href="#">Comprar</a>
+                      <span class="button" id="price">$59,99</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="relogios">
+              <div class="product">
+                <div class="img-container zoom">
+                  <img src="https://images.unsplash.com/photo-1434493907317-a46b5bbe7834?dpr=1&auto=compress,format&fit=crop&w=1500&h=&q=80&cs=tinysrgb&crop=">
+                </div>
+                <div class="product-info">
+                  <div class="product-content">
+                    <h1>Apple Watch 3</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit ariaturLorem ipsum dolor sit amet consectetur adipisicing elit ariaturLorem ipsum dolor sit amet consectetur adipisicing elit ariatur....</p>
+                    <div class="buttons">
+                      <a onclick="carrinho()" class="button add">Comprar</a>
+                      <span class="button" id="price">$129,99</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-secondary btn-block">
+              <i class="fas fa-plus"></i>&nbsp;Ver Mais!
+            </button>
+          </div>
+        </div>
+      </div>
 
+      <script>
+        $(function() {
+          if('<%= usuario %>' == '0' || '<%= usuario %>' == '') {
+            $('#content').removeClass('display-none')
+          }
+        })
+
+        $(window).scroll(function() {
+          if ($(this).scrollTop() > 40) {
+            $("#menupesquisa").addClass("bg-while");
+            $("#menu2").css({"margin-top": "4%"});
+          } else {
+            $("#menupesquisa").removeClass("bg-while");
+            $("#menu2").css({"margin-top": "4.5%"});
+          }
+        });
+
+        function carrinho() {
+          Swal.fire({
+            width: 300,
+            icon: 'question',
+            title: 'Produto X',
+            text: 'Deseja adicionar no carrinho?',
+            showCloseButton: true,
+            showCancelButton: true,
+            allowEscapeKey : false,
+            allowOutsideClick: false,
+            focusConfirm: false,
+            confirmButtonText: '<i class="fa fa-thumbs-up"></i> Sim!',
+            cancelButtonText: '<i class="fa fa-thumbs-down"></i> Não!',
+            cancelButtonAriaLabel: 'Thumbs down'
+          })
+        }
+      </script>
 <% include customs/client/rodape %>

@@ -2,159 +2,168 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb btn-sm">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="<%= url %>/minha-conta">Minha Conta</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Conta Editar</li>
-              </ol>
-            </nav>
-          </div>
-          <div class="col-sm-12">
-            <form action="">
-              <fieldset>
-                <legend>Alterar Senha</legend>
+            <div class="row">
+              <div class="col-sm-12 d-flex flex-column justify-content-center">
                 <div class="row">
-                  <div class="col-sm-5">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text">Nova Senha</div>
-                      </div>
-                      <input type="text" class="form-control" name="senha" id="senha" placeholder="Nova senha!">
-                    </div>
-                  </div>
-                  <div class="col-sm-5">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text">Confirmação da senha</div>
-                      </div>
-                      <input type="text" class="form-control" name="confirma_senha" id="confirma_senha" placeholder="Confirmação da senha!">
-                    </div>
-                  </div>
-                  <div class="col-sm-2">
-                    <button type="button" class="btn btn-primary"><i class="fas fa-lock"></i>&nbsp;Alterar Senha</button>
-                  </div>
-                </div>
-              </fieldset>
-            </form>
-          </div>
-          <div class="col-sm-12">
-            <form action="">
-              <fieldset>
-                <legend>Dados Pessoais</legend>
-                <div class="row">
-                  <div class="col-sm-6">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text">Nome</div>
-                      </div>
-                      <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome completo">
-                    </div>
-                  </div>
-                  <div class="col-sm-3">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text">Data Nasc.</div>
-                      </div>
-                      <input type="text" class="form-control date" name="dt_nascimento" id="dt_nascimento" placeholder="__/__/____">
-                    </div>
-                  </div>
-                  <div class="col-sm-3">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text">CPF</div>
-                      </div>
-                      <input type="text" class="form-control date" name="dt_nascimento" id="dt_nascimento" placeholder="xxx.xxx.xxx-xx">
-                    </div>
-                  </div>
-                </div>
-                <div class="row" style="margin-top: 0.5%;">
-                  <div class="col-sm-8">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text">E-mail</div>
-                      </div>
-                      <input type="text" class="form-control" name="nome" id="nome" placeholder="E-mail">
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text">Time</div>
-                      </div>
-                      <select class="form-control" id="time" name="time">
-                        <option value="">a</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <div class="row" style="margin-top: 0.5%;">
-                  <div class="col-sm-3">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text">CEP</div>
-                      </div>
-                      <input onblur="buscaCEP(this.value)" type="text" class="form-control" name="cep" id="cep" placeholder="CEP">
-                    </div>
-                  </div>
-                  <div class="col-sm-7">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text">Logradouro</div>
-                      </div>
-                      <input type="text" class="form-control" disabled name="logradouro" id="logradouro">
-                    </div>
-                  </div>
-                  <div class="col-sm-2">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text">Nº</div>
-                      </div>
-                      <input type="text" class="form-control" name="numero" id="numero">
-                    </div>
-                  </div>
-                </div>
-                <div class="row" style="margin-top: 0.5%;">
-                  <div class="col-sm-4">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text">Bairro</div>
-                      </div>
-                      <input type="text" class="form-control" disabled name="bairro" id="bairro">
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text">Cidade</div>
-                      </div>
-                      <input type="text" class="form-control" disabled name="cidade" id="cidade">
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text">Estado</div>
-                      </div>
-                      <input type="text" class="form-control" disabled name="estado" id="estado">
-                    </div>
-                  </div>
-                </div>
-                <div class="row" style="margin-top: 0.5%;">
                   <div class="col-sm-12">
-                    <div class="input-group">
-                      <textarea type="text" class="form-control" name="complemento" id="complemento" placeholder="Complemento"></textarea>
+                    <div class="rounded shadow shadow-sm">
+                      <div class="background-carrinho" style="padding: 1rem 1rem 0.7rem 1rem !important;">
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <h5 class="text-center"><b>Editar Informações</b></h5>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <form action="">
+                          <fieldset>
+                            <legend>Alterar Senha</legend>
+                            <div class="row">
+                              <div class="col-sm-5">
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <div class="input-group-text">Nova Senha</div>
+                                  </div>
+                                  <input type="text" class="form-control" name="senha" id="senha" placeholder="Nova senha!">
+                                </div>
+                              </div>
+                              <div class="col-sm-5 edit-profile-top">
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <div class="input-group-text">Confirmação</div>
+                                  </div>
+                                  <input type="text" class="form-control" name="confirma_senha" id="confirma_senha" placeholder="Confirmação da senha!">
+                                </div>
+                              </div>
+                              <div class="col-sm-2 edit-profile-top">
+                                <button type="button" class="btn btn-primary btn-block"><i class="fas fa-lock"></i>&nbsp;Alterar Senha</button>
+                              </div>
+                            </div>
+                          </fieldset>
+                        </form>
+                        <form action="">
+                          <fieldset>
+                            <legend>Dados Pessoais</legend>
+                            <div class="row">
+                              <div class="col-sm-6">
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <div class="input-group-text">Nome</div>
+                                  </div>
+                                  <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome completo">
+                                </div>
+                              </div>
+                              <div class="col-sm-3 edit-profile-top">
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <div class="input-group-text">Data Nasc.</div>
+                                  </div>
+                                  <input type="text" class="form-control date" name="dt_nascimento" id="dt_nascimento" placeholder="__/__/____">
+                                </div>
+                              </div>
+                              <div class="col-sm-3 edit-profile-top">
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <div class="input-group-text">CPF</div>
+                                  </div>
+                                  <input type="text" class="form-control date" name="dt_nascimento" id="dt_nascimento" placeholder="xxx.xxx.xxx-xx">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row" style="margin-top: 0.5%;">
+                              <div class="col-sm-8 edit-profile-top">
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <div class="input-group-text">E-mail</div>
+                                  </div>
+                                  <input type="text" class="form-control" name="nome" id="nome" placeholder="E-mail">
+                                </div>
+                              </div>
+                              <div class="col-sm-4 edit-profile-top">
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <div class="input-group-text">Time</div>
+                                  </div>
+                                  <select class="form-control" id="time" name="time">
+                                    <option value="">a</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row" style="margin-top: 0.5%;">
+                              <div class="col-sm-3 edit-profile-top">
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <div class="input-group-text">CEP</div>
+                                  </div>
+                                  <input onblur="buscaCEP(this.value)" type="text" class="form-control" name="cep" id="cep" placeholder="CEP">
+                                </div>
+                              </div>
+                              <div class="col-sm-7 edit-profile-top">
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <div class="input-group-text">Logradouro</div>
+                                  </div>
+                                  <input type="text" class="form-control" disabled name="logradouro" id="logradouro">
+                                </div>
+                              </div>
+                              <div class="col-sm-2 edit-profile-top">
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <div class="input-group-text">Nº</div>
+                                  </div>
+                                  <input type="text" class="form-control" name="numero" id="numero">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row" style="margin-top: 0.5%;">
+                              <div class="col-sm-4 edit-profile-top">
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <div class="input-group-text">Bairro</div>
+                                  </div>
+                                  <input type="text" class="form-control" disabled name="bairro" id="bairro">
+                                </div>
+                              </div>
+                              <div class="col-sm-4 edit-profile-top">
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <div class="input-group-text">Cidade</div>
+                                  </div>
+                                  <input type="text" class="form-control" disabled name="cidade" id="cidade">
+                                </div>
+                              </div>
+                              <div class="col-sm-4 edit-profile-top">
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <div class="input-group-text">Estado</div>
+                                  </div>
+                                  <input type="text" class="form-control" disabled name="estado" id="estado">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row" style="margin-top: 0.5%;">
+                              <div class="col-sm-12 edit-profile-top">
+                                <div class="input-group">
+                                  <textarea type="text" class="form-control" name="complemento" id="complemento" placeholder="Complemento"></textarea>
+                                </div>
+                              </div>
+                            </div>
+                          </fieldset>
+                          <div class="col-xs-6" style="margin-top: 0.5%;">
+                            <a href="<%= url %>/minha-conta" class="btn btn-primary btn-sm"><i class="fas fa-hand-point-left"></i>&nbsp;Voltar</a>
+                          </div>
+                          <div class="col-xs-6 text-right" style="margin-top: 0.5%;">
+                            <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-check-circle"></i>&nbsp;Salvar Dados</button>
+                          </div>
+                        </form>
+                        <br><br>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </fieldset>
-              <div class="col-xs-6">
-                <a href="<%= url %>/minha-conta" class="btn btn-primary btn-sm"><i class="fas fa-hand-point-left"></i>&nbsp;Voltar</a>
               </div>
-              <div class="col-xs-6 text-right">
-                <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-check-circle"></i>&nbsp;Salvar Dados</button>
-              </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>

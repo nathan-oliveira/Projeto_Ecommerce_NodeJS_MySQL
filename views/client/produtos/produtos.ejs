@@ -1,45 +1,76 @@
 <% include ../../customs/client/cabecalho %>
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb btn-sm">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Produtos</li>
-                <li class="breadcrumb-item active" aria-current="page" id="breadcrum_li"></li>
-              </ol>
-            </nav>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-3" style="margin-top: 0.5%">
-            <fieldset>
-              <legend style="text-align: center !important;">Pesquisar</legend>
+      <!-- Menu2 -->
+      <div class="menu2 fixed-top" id="menu2" style="margin-top: 4.5%;">
+        <nav class="navbar navbar-expand-lg navbar-while" id="menupesquisa">
+            <div class="container">
               <div class="input-group">
                 <input type="text" class="form-control" placeholder="Pesquisar" aria-label="Pesquisar" aria-describedby="Pesquisar">
                 <div class="input-group-append">
                   <button class="btn btn-blue" type="button">
-                    <i class="fas fa-search" style="color: #fff !important;"></i>
+                    <i class="fas fa-search" style="color: #fff !important; font-weight: 500;"></i> 
+                    <b style="color: #fff !important; font-weight: 500;">Pesquisar</b>
                   </button>
+                </div>
+              </div>
+            </div>
+        </nav>
+      </div>
+      <div class="container">
+        <div class="row"  style="margin-top: 4.5%;">
+          <div class="col-sm-3" style="margin-top: -1%;">
+            <fieldset>
+              <legend style="text-align: center !important;">Ordenar por</legend>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="input-group">
+                    <select class="custom-select" id="inputGroupSelect01">
+                      <option value="1">Menores Preços</option>
+                      <option value="2">Maiores Preços</option>
+                      <option value="3">Mais Relevantes</option>
+                      <option selected value="4">Mais Vendidos</option>
+                      <option value="5">Melhor Avaliados</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-12" style="margin-top: 5px;">
+                  <button type="button" class="btn btn-blue btn-block" style="color: #fff !important;"><i class="fas fa-filter"></i>&nbsp;Filtrar</button>
                 </div>
               </div>
             </fieldset>
             <fieldset>
-              <legend style="text-align: center !important;">Preço Máximo</legend>
+              <legend style="text-align: center !important;">Preço</legend>
               <div class="row">
                 <div class="col-sm-12">
-                  <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">R$</span>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <label class="" id="content-check">
+                        <p class="p-check">Teste Teste Teste Teste</p>
+                        <input type="checkbox"> <!--  checked="checked" -->
+                        <span class="checkmark"></span>
+                      </label>
                     </div>
-                    <input type="number" class="form-control">
-                    <div class="input-group-append">
-                      <span class="input-group-text">.00</span>
+                    <div class="col-sm-12">
+                      <label class="" id="content-check">
+                        <p class="p-check">Teste Teste Teste Teste</p>
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                    <div class="col-sm-12">
+                      <label class="" id="content-check">
+                        <p class="p-check">Teste Teste Teste Teste</p>
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                    <div class="col-sm-12">
+                      <label class="" id="content-check">
+                        <p class="p-check">Teste Teste Teste Teste</p>
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                      </label>
                     </div>
                   </div>
-                </div>
-                <div class="col-sm-12" style="margin-top: -5px;">
-                  <button type="button" class="btn btn-blue btn-block" style="color: #fff !important;"><i class="fas fa-filter"></i>&nbsp;Filtrar</button>
                 </div>
               </div>
             </fieldset>
@@ -51,7 +82,7 @@
                       <a class="list-group-item active" ref_sys="variados">
                         <input type="hidden" value="variados" id="variados">
                         <li class="active" style="display: block;">
-                          Produtos variados
+                          Produtos Variados
                         </li>
                       </a>
                       <a class="list-group-item active2" ref_sys="relogio">
@@ -78,39 +109,18 @@
             </fieldset>
           </div>
           <div class="col-sm-9">
-            <div class="tenis invisivel">
-              <div class="product">
-                <div class="img-container zoom">
-                  <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?dpr=1&auto=compress,format&fit=crop&w=1400&h=&q=80&cs=tinysrgb&crop=">
-                </div>
-                <div class="product-info">
-                  <div class="product-content">
-                    <br>
-                    <h1>Nike Airmax</h1>
-                    <br>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit ariaturLorem ipsum dolor sit amet consectetur adipisicing elit ariaturLorem ipsum dolor sit amet consectetur adipisicing elit ariatur....</p>
-                    <div class="buttons">
-                      <a onclick="carrinho()" class="button add" href="#">Adicionar no carrinho</a>
-                      <span class="button" id="price">$59,99</span>
-                    </div>
+            <div class="row">
+              <div class="col-sm-4" style="margin-top: 1%;">
+                <div class="card bg-light mb-3" style="max-width: 18rem; margin-top: 2%;">
+                  <div class="card-head zoom">
+                    <img class="card-img-top" src="https://photos.enjoei.com.br/public/1200xN/czM6Ly9waG90b3MuZW5qb2VpLmNvbS5ici9wcm9kdWN0cy8xMDIwODg1My83ZjZkYWMyZWY0MWYwNDY5OTIyZGRiYzE1NGE1MTNhNy5qcGc" alt="Card image cap">
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="relogios">
-              <div class="product">
-                <div class="img-container zoom">
-                  <img src="https://images.unsplash.com/photo-1434493907317-a46b5bbe7834?dpr=1&auto=compress,format&fit=crop&w=1500&h=&q=80&cs=tinysrgb&crop=">
-                </div>
-                <div class="product-info">
-                  <div class="product-content">
-                    <br>
-                    <h1>Apple Watch 3</h1>
-                    <br>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit ariaturLorem ipsum dolor sit amet consectetur adipisicing elit ariaturLorem ipsum dolor sit amet consectetur adipisicing elit ariatur....</p>
-                    <div class="buttons">
-                      <a onclick="carrinho()" class="button add">Adicionar no carrinho</a>
-                      <span class="button" id="price">$129,99</span>
+                  <div class="card-body" style="background: #fff;">
+                    <h5 class="card-title text-center">Light card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title...</p>
+                    <div class="text-center">
+                      <span class="button2 spanValor">$12332,99</span>
+                      <a class="button2 comprar-button">Visualizar</a>
                     </div>
                   </div>
                 </div>
@@ -121,18 +131,19 @@
       </div>
 
       <script>
-        function carrinho() {
-          Swal.fire({
-            width: 400,
-            icon: 'success',
-            title: 'Produto',
-            text: 'Adicionado no carrinho com sucesso!'
-          })
-        }
-
         $(function() {
           cliqueMenu();
           document.getElementById("variados").click();
+        });
+
+        $(window).scroll(function() {
+          if ($(this).scrollTop() > 40) {
+            $("#menupesquisa").addClass("bg-while");
+            $("#menu2").css({"margin-top": "4%"});
+          } else {
+            $("#menupesquisa").removeClass("bg-while");
+            $("#menu2").css({"margin-top": "4.5%"});
+          }
         });
 
         function cliqueMenu() {
@@ -140,47 +151,16 @@
             $('.list-group a').removeClass('active')
             $('.list-group a[ref_sys='+$(this).attr('ref_sys')+']').addClass('active')
 
-            switch ($(this).attr('ref_sys')) {
-              case $("#variados").val(): variados(); break;
-              case $("#relogio").val(): relogio(); break;
-              case $("#camiseta").val(): camiseta(); break;
-              case $("#tenis").val(): tenis(); break;
-              default:
-                break;
-            }
-
+            // switch ($(this).attr('ref_sys')) {
+            //   case $("#variados").val(): variados(); break;
+            //   case $("#relogio").val(): relogio(); break;
+            //   case $("#camiseta").val(): camiseta(); break;
+            //   case $("#tenis").val(): tenis(); break;
+            //   default:
+            //     break;
+            // }
             return false;
-
           })
-        }
-
-        function variados() {
-          $(".invisivel").removeClass('invisivel');
-          $('#breadcrum_li').html('Produtos Variados');
-        }
-
-        function relogio() {
-          $('.relogios').removeClass('invisivel');
-          $('.tenis').addClass('invisivel');
-          $('.camisetas').addClass('invisivel');
-
-          $('#breadcrum_li').html('Relógios');
-        }
-
-        function camiseta() {
-          $('.relogios').addClass('invisivel');
-          $('.tenis').addClass('invisivel');
-          $('.camisetas').removeClass('invisivel');
-
-          $('#breadcrum_li').html('Camisetas');
-        }
-
-        function tenis() {
-          $('.tenis').removeClass('invisivel')
-          $('.relogios').addClass('invisivel');
-          $('.camisetas').addClass('invisivel');
-
-          $('#breadcrum_li').html('Tênis');
         }
       </script>
 <% include ../../customs/client/rodape %>

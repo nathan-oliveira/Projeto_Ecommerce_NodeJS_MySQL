@@ -3,6 +3,10 @@
     cursor: pointer;
 }
 
+.display-none {
+    display: none;
+}
+
 [data-tema="dark"] {
     background-color: #111 !important;
     color: #eee;
