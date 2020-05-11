@@ -20,6 +20,6 @@ module.exports = (app) => {
   })
 
   app.get('/produtos', logado_cliente, (req, res, next) => {
-    app.src.controller.client.ClientController.produtos(app, req, res, next)
+    app.src.controller.client.ProdutoController.produtos(app, req, res, next)
   })
 }

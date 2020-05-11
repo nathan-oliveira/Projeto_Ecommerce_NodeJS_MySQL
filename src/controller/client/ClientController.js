@@ -64,16 +64,3 @@ exports.contaEditar = async (app, req, res, next) => {
     next(error);
   }
 }
-
-exports.produtos = async (app, req, res, next) => {
-  try {
-    res.render('client/produtos/produtos', {
-      identification: req.session.loggedin,
-      usuario: req.session.usuario,
-      url: process.env.URL,
-      data: {}
-    })
-  } catch (error) {
-    next(error);
-  }
-}

@@ -18,7 +18,7 @@ module.exports.listar = async (app, req, res, next) => {
 module.exports.listar_datatable = async (app, req, res, next) => {
   try {
     const conn = app.bin.keys();
-    const timesDAO = new app.src.models.client.TimesDAO(conn)
+    const timesDAO = new app.src.models.vendedor.TimesDAO(conn)
     timesDAO.getAll((err, result) => {
       const content = []
       if(result) {
@@ -43,7 +43,7 @@ module.exports.salvar = async (app, req, res, next) => {
     }
 
     const conn = app.bin.keys();
-    const timesDAO = new app.src.models.client.TimesDAO(conn)
+    const timesDAO = new app.src.models.vendedor.TimesDAO(conn)
     timesDAO.getTimes(req.body.nome, (err, times) => {
       if(times == '') {
         timesDAO.save(data, req.body.checker, (err, result) => {
@@ -72,15 +72,13 @@ module.exports.salvar = async (app, req, res, next) => {
 module.exports.excluir = async (app, req, res, next) => {
   try {
     const conn = app.bin.keys();
-    const timesDAO = new app.src.models.client.TimesDAO(conn)
-    timesDAO.getById(req.params.id, function (err, old) {
-      timesDAO.delete(req.params.id, function (err, result) {
-        if (err) {
-          res.json(err)
-        } else {
-          res.redirect(process.env.URL + '/times/cadastrar')
-        }
-      })
+    const timesDAO = new app.src.models.vendedor.TimesDAO(conn)
+    timesDAO.delete(req.params.id, function (err, result) {
+      if (err) {
+        res.status(200).json({ error: `Não foi possível excluir o Time, Motivo: 'Em uso!'` })
+      } else {
+        res.status(200).json({ error: null })
+      }
     })
   } catch (error) {
     next(error);

@@ -1,3 +1,13 @@
+=== SQL ===
 ALTER TABLE `fut_db`.`produto`
-CHANGE COLUMN `preco` `preco` DECIMAL(9,2) NOT NULL ;
+CHANGE COLUMN `preco` `preco` DECIMAL(9,2) NOT NULL;
 
+=== css compressed (SASS) ===
+npm install -g sass
+cd public/css
+sass config.scss style.css --style compressed
+
+=== js compressed (uglify) ===
+npm install -g uglify-js
+cd public/js
+uglifyjs jquery-3.2.0.min.js jquery.mask.js Client.js jquery.dataTables.min.js dataTables.bootstrap4.min.js popper.min.js bootstrap.min.js all.min.js sweetalert2.all.min.js -o javascripts.min.js -c -m --source-map "root='http://localhost:3000/', url='javascripts.min.js'"

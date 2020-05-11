@@ -18,7 +18,7 @@ module.exports.listar = async (app, req, res, next) => {
 module.exports.listar_datatable = async (app, req, res, next) => {
   try {
     const conn = app.bin.keys();
-    const categoriasDAO = new app.src.models.client.CategoriasDAO(conn)
+    const categoriasDAO = new app.src.models.vendedor.CategoriasDAO(conn)
     categoriasDAO.getAll((err, result) => {
       const content = []
       if(result) {
@@ -43,15 +43,11 @@ module.exports.salvar = async (app, req, res, next) => {
     }
 
     const conn = app.bin.keys();
-    const categoriasDAO = new app.src.models.client.CategoriasDAO(conn)
+    const categoriasDAO = new app.src.models.vendedor.CategoriasDAO(conn)
     categoriasDAO.getDescricao(req.body.nome, (err, desc) => {
       if(desc == '') {
         categoriasDAO.save(data, req.body.checker, (err, result) => {
-          if(err) {
-            res.json(err)
-          } else {
-            res.redirect(process.env.URL + '/categorias/cadastrar')
-          }
+          res.redirect(process.env.URL + '/categorias/cadastrar')
         })
       } else if(desc[0].descricao === req.body.nome) {
         res.render('vendedor/categorias/listar', {
@@ -72,12 +68,12 @@ module.exports.salvar = async (app, req, res, next) => {
 module.exports.excluir = async (app, req, res, next) => {
   try {
     const conn = app.bin.keys();
-    const categoriasDAO = new app.src.models.client.CategoriasDAO(conn)
+    const categoriasDAO = new app.src.models.vendedor.CategoriasDAO(conn);
     categoriasDAO.delete(req.params.id, function (err, result) {
       if (err) {
-        res.json(err)
+        res.status(200).json({ error: `Não foi possível excluir á Categoria, Motivo: 'Em uso!'` })
       } else {
-        res.redirect(process.env.URL + '/categorias/cadastrar')
+        res.status(200).json({ error: null })
       }
     })
   } catch (error) {

@@ -19,6 +19,7 @@ TimesDAO.prototype.getById = function (id, callback) {
 TimesDAO.prototype.delete = function  (id, callback) {
   this._connection.query(`DELETE FROM time WHERE id = ?`, [id], callback)
 }
+
 TimesDAO.prototype.save = function (data, checker, callback) {
   if(checker === '0') {
     this._connection.query(`INSERT INTO time SET ?`, data, callback)

@@ -110,21 +110,27 @@
           </div>
           <div class="col-sm-9">
             <div class="row">
+              <!--  -->
+<% if (data.length > 0) { %>
+<% for (var i = 0; i < data.length; i++) { %>
               <div class="col-sm-4" style="margin-top: 1%;">
                 <div class="card bg-light mb-3" style="max-width: 18rem; margin-top: 2%;">
                   <div class="card-head zoom">
-                    <img class="card-img-top" src="https://photos.enjoei.com.br/public/1200xN/czM6Ly9waG90b3MuZW5qb2VpLmNvbS5ici9wcm9kdWN0cy8xMDIwODg1My83ZjZkYWMyZWY0MWYwNDY5OTIyZGRiYzE1NGE1MTNhNy5qcGc" alt="Card image cap">
+                    <img class="card-img-top" src="<%= url %>/uploads/<%= data[i].imagem %>" alt="Card image cap">
                   </div>
                   <div class="card-body" style="background: #fff;">
-                    <h5 class="card-title text-center">Light card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title...</p>
+                    <h5 class="card-title text-center"><%= data[i].nome %></h5>
+                    <p class="card-text"><%= data[i].descricao %> ....</p>
                     <div class="text-center">
-                      <span class="button2 spanValor">$12332,99</span>
+                      <span class="button2 spanValor">$ <%= data[i].preco %></span>
                       <a class="button2 comprar-button">Visualizar</a>
                     </div>
                   </div>
                 </div>
               </div>
+<% } %>
+<% } %>
+              <!--  -->
             </div>
           </div>
         </div>

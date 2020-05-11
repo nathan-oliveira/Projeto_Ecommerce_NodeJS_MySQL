@@ -18,7 +18,7 @@ module.exports.listar = async (app, req, res, next) => {
 module.exports.listar_datatable = async (app, req, res, next) => {
   try {
     const conn = app.bin.keys();
-    const produtoDAO = new app.src.models.client.ProdutoDAO(conn)
+    const produtoDAO = new app.src.models.vendedor.ProdutoDAO(conn)
     produtoDAO.getAll((err, result) => {
       const data = []
       if(result) {
@@ -42,9 +42,9 @@ module.exports.listar_datatable = async (app, req, res, next) => {
 module.exports.cadastrar = async (app, req, res, next) => {
   try {
     const conn = app.bin.keys();
-    const categoriasDAO = new app.src.models.client.CategoriasDAO(conn)
+    const categoriasDAO = new app.src.models.vendedor.CategoriasDAO(conn)
     categoriasDAO.getAll((err, categoria) => {
-      const timeDAO = new app.src.models.client.TimesDAO(conn)
+      const timeDAO = new app.src.models.vendedor.TimesDAO(conn)
       timeDAO.getAll((err, time) => {
         if(err) {
           res.json(err)
@@ -70,11 +70,11 @@ module.exports.cadastrar = async (app, req, res, next) => {
 module.exports.editar = async (app, req, res, next) => {
   try {
     const conn = app.bin.keys();
-    const produtoDAO = new app.src.models.client.ProdutoDAO(conn)
+    const produtoDAO = new app.src.models.vendedor.ProdutoDAO(conn)
     produtoDAO.getById(req.params.id, (err, result) => {
-      const categoriasDAO = new app.src.models.client.CategoriasDAO(conn)
+      const categoriasDAO = new app.src.models.vendedor.CategoriasDAO(conn)
       categoriasDAO.getAll((err, categoria) => {
-        const timeDAO = new app.src.models.client.TimesDAO(conn)
+        const timeDAO = new app.src.models.vendedor.TimesDAO(conn)
         timeDAO.getAll((err, time) => {
           if(err) {
             res.json(err)
@@ -101,7 +101,7 @@ module.exports.editar = async (app, req, res, next) => {
 module.exports.excluir = async (app, req, res, next) => {
   try {
     const conn = app.bin.keys();
-    const ProdutoDAO = new app.src.models.client.ProdutoDAO(conn)
+    const ProdutoDAO = new app.src.models.vendedor.ProdutoDAO(conn)
     ProdutoDAO.getImgProd(req.params.id, function (err, imgs) {
       const imgId = (imgs[0].imagem_id).split(",");
       ProdutoDAO.deleteImgProd(req.params.id, function (err, dp) {
@@ -161,12 +161,12 @@ module.exports.salvar = async (app, req, res, next, mult) => {
 
     const conn = app.bin.keys();
     if(erros) {
-      const produtoDAO = new app.src.models.client.ProdutoDAO(conn)
+      const produtoDAO = new app.src.models.vendedor.ProdutoDAO(conn)
       produtoDAO.getById(req.body.checker, (err, result) => {
         let dados = result[0]
-        const categoriasDAO = new app.src.models.client.CategoriasDAO(conn)
+        const categoriasDAO = new app.src.models.vendedor.CategoriasDAO(conn)
         categoriasDAO.getAll((err, categoria) => {
-          const timeDAO = new app.src.models.client.TimesDAO(conn)
+          const timeDAO = new app.src.models.vendedor.TimesDAO(conn)
           timeDAO.getAll((err, time) => {
             if(err) {
               res.json(err)
@@ -196,7 +196,7 @@ module.exports.salvar = async (app, req, res, next, mult) => {
         const img2 = [];
         const img3 = [];
 
-        const produtoDAO = new app.src.models.client.ProdutoDAO(conn)
+        const produtoDAO = new app.src.models.vendedor.ProdutoDAO(conn)
         produtoDAO.getById(req.body.checker, (err, result) => {
           if(req.files.imagem1 == undefined) {
             img1.push({ "url": result[0].url1, "opcao": '1' })
@@ -227,7 +227,7 @@ module.exports.salvar = async (app, req, res, next, mult) => {
 
 function save(app, res, conn, checker, data, data1, data2, data3) {
   let idProduto;
-  const produtoDAO = new app.src.models.client.ProdutoDAO(conn)
+  const produtoDAO = new app.src.models.vendedor.ProdutoDAO(conn)
   produtoDAO.save(data, checker, (err, produto) => {
     if(checker == "0") {
       idProduto = produto.insertId;

@@ -5,6 +5,28 @@
 	font-family: "Open Sans";
 }
 
+/* Ajuste Alert */
+.swal2-icon.swal2-warning {
+  width: 60px !important;
+  height: 60px !important;
+}
+.swal2-title {
+  font-size: 1.3em !important;
+}
+.swal2-content {
+  font-size: 1em !important;
+}
+.swal2-styled.swal2-confirm {
+  font-size: 0.8em !important;
+}
+.swal2-styled.swal2-cancel {
+  font-size: 0.8em !important;
+}
+.swal2-modal {
+  width: 300px !important;
+}
+
+
 .display-none {
   display: none;
 }

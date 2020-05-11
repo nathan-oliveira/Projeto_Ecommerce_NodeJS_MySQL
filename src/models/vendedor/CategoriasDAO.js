@@ -19,6 +19,7 @@ CategoriasDAO.prototype.getById = function (id, callback) {
 CategoriasDAO.prototype.delete = function (id, callback) {
   this._connection.query(`DELETE FROM categoria WHERE id = ?`, [id], callback)
 }
+
 CategoriasDAO.prototype.save = function (data, checker, callback) {
   if(checker === '0') {
     this._connection.query(`INSERT INTO categoria SET ?`, data, callback)
