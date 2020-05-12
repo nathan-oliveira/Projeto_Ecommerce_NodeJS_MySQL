@@ -4,4 +4,21 @@
       <p>Todos os direitos reservados!</p>
     </footer>
   </body>
+
+  <script>
+    jQuery(document).ready(function() {
+      $(window).scroll(function() {
+        if ($(this).scrollTop() != 0) {
+          $('#back').fadeIn();
+        } else {
+          $('#back').fadeOut();
+        }
+      })
+
+      $('#back').click(function() {
+        $('body, html').animate({scrollTop:0}, 800);
+        return false;
+      })
+    })
+  </script>
 </html>

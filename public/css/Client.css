@@ -266,8 +266,8 @@ footer p {
   vertical-align: top;
   display: inline-block;
   margin: 10px ;
-  
 }
+
 .menu-item {
   background-color: #FEFEFE;
   width: 200px;
@@ -566,4 +566,59 @@ legend {
   cursor: pointer;
   border: 1px #5e5e5e solid;
   color: #5e5e5e !important;
+}
+
+.card-img-top {
+  text-align: center;
+  min-width:100px;
+  max-height:225px;
+}
+
+
+@media only screen and (min-width: 1024px) {
+  #back {
+    display: none;
+    width:35px;
+    height: 35px;
+    background-image: url('../img/climb_up.png');
+    position: fixed;
+    right: 15px;
+    bottom: 10px;
+    background-size: cover;
+    text-align:center;
+    bottom: 15px;
+    cursor:pointer;
+    display:none;
+    z-index: 999999;
+  }
+
+  .menu_group {
+    margin-top: 4%;
+  }
+
+  .cards_top {
+    margin-top: 2%;
+  }
+
+  .itens_top {
+    margin-top: 3.5%;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  #back {
+    display: none;
+  }
+
+  .menu_group {
+    margin-top: 15%;
+  }
+
+  .cards_top {
+    margin-top: 6%;
+  }
+
+  .itens_top {
+    margin-top: 9%;
+  }
 }

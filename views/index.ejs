@@ -2,7 +2,7 @@
       <div class="container display-none" id="content">
         <div class="row">
           <!-- Menu2 -->
-          <div class="menu2 fixed-top" id="menu2" style="margin-top: 4.5%;">
+          <div class="menu2 menu_group fixed-top" id="menu2">
             <nav class="navbar navbar-expand-lg navbar-while" id="menupesquisa">
                 <div class="container">
                   <div class="input-group">
@@ -10,14 +10,14 @@
                     <div class="input-group-append">
                       <button class="btn btn-blue" type="button">
                         <i class="fas fa-search" style="color: #fff !important; font-weight: 500;"></i> 
-                        <b style="color: #fff !important; font-weight: 500;">Pesquisar</b>
+                        <b style="color: #fff !important; font-weight: 500;"></b>
                       </button>
                     </div>
                   </div>
                 </div>
             </nav>
           </div>
-          <div class="col-sm-12" style="margin-top: 4%;">
+          <div class="col-sm-12 cards_top">
             <div class="tenis">
               <div class="product">
                 <div class="img-container zoom">
@@ -69,10 +69,9 @@
         $(window).scroll(function() {
           if ($(this).scrollTop() > 40) {
             $("#menupesquisa").addClass("bg-while");
-            $("#menu2").css({"margin-top": "4%"});
+            $("#menu2").addClass("menu_modif");
           } else {
             $("#menupesquisa").removeClass("bg-while");
-            $("#menu2").css({"margin-top": "4.5%"});
           }
         });
 

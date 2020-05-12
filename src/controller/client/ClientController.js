@@ -16,7 +16,6 @@ exports.carrinho = async (app, req, res, next) => {
 exports.carrinho_datatable = async (app, req, res, next) => { 
   try {
     const conn = app.bin.keys();
-    console.log('ok')
   } catch (error) {
     next(error);
   }

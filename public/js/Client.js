@@ -134,3 +134,16 @@ function buscaCEP(valor) {
     limpa_formulário_cep();
   }
 }
+
+$(function () {
+  $(window).scroll(function () {
+    if ($(this).scrollTop() != 0) {
+      $('#inicio_body').fadeIn()
+    } else {
+      $('#inicio_body').fadeOut()
+    }
+  })
+  $('#inicio_body').click(function () {
+    $('body,html').animate({ scrollTop: 0 }, 800)
+  })
+})
