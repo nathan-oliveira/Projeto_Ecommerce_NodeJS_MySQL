@@ -79,25 +79,25 @@
                 <div class="row" style="cursor: pointer;">
                   <div class="col-md-12">
                     <ul class="list-group">
-                      <a class="list-group-item active" ref_sys="variados">
+                      <a class="list-group-item active card_item" ref_sys="variados">
                         <input type="hidden" value="variados" id="variados">
                         <li class="active" style="display: block;">
                           Produtos Variados
                         </li>
                       </a>
-                      <a class="list-group-item active2" ref_sys="relogio">
+                      <a class="list-group-item active2 card_item" ref_sys="relogio">
                         <input type="hidden" value="relogio" id="relogio">
                         <li class="active" style="display: block;">
                           Relógio
                         </li>
                       </a>
-                      <a class="list-group-item active2" ref_sys="camiseta">
+                      <a class="list-group-item active2 card_item" ref_sys="camiseta">
                         <input type="hidden" value="camiseta" id="camiseta">
                         <li class="active" style="display: block;">
                           Camiseta
                         </li>
                       </a>
-                      <a class="list-group-item active2" ref_sys="tenis">
+                      <a class="list-group-item active2 card_item" ref_sys="tenis">
                         <input type="hidden" value="tenis" id="tenis">
                         <li class="active" style="display: block;">
                           Tênis
@@ -110,27 +110,25 @@
           </div>
           <div class="col-sm-9">
             <div class="row">
-              <!--  -->
 <% if (data.length > 0) { %>
 <% for (var i = 0; i < data.length; i++) { %>
-              <div class="col-sm-4" style="margin-top: 0.5%;">
-                <div class="card bg-light mb-3" style="max-width: 18rem; margin-top: 2%;">
-                  <div class="card-head zoom">
-                    <img class="card-img-top" src="<%= url %>/uploads/<%= data[i].imagem %>" alt="Card image cap">
+              <div class="col-sm-4 cards card-rows" style="margin-top: 1%;">
+                <div class="card card_item" style="max-width: 18rem;" style="margin-top: 2%;">
+                  <div class="card-head zoom" style="border: 1px solid rgba(0,0,0,.125);">
+                    <img src="<%= url %>/uploads/<%= data[i].imagem %>" class="card-img-top" alt="" height="260">
                   </div>
-                  <div class="card-body" style="background: #fff;">
-                    <h5 class="card-title text-center"><%= data[i].nome %></h5>
+                  <div class="card-body text-center">
+                    <h5 class="card-title"><%= data[i].nome %></h5>
                     <p class="card-text"><%= data[i].descricao %> ....</p>
-                    <div class="text-center">
-                      <span class="button2 spanValor">$ <%= data[i].preco %></span>
-                      <a class="button2 comprar-button">Visualizar</a>
+                    <div class="buttons">
+                      <a class="button2 comprar-button"><i class="fas fa-eye"></i> Visualizar</a>
+                      <span class="button2 spanValor">R$ <%= data[i].preco %></span>
                     </div>
                   </div>
                 </div>
               </div>
 <% } %>
 <% } %>
-              <!--  -->
             </div>
           </div>
         </div>

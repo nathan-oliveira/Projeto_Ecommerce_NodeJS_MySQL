@@ -197,6 +197,10 @@ footer p {
     margin-top: 2% !important;
   }
 
+  .card-rows {
+    padding-left: 10% !important;
+  }
+
 }
 
 .preco-card {
@@ -381,7 +385,7 @@ legend {
   background: #5995b6 !important;
 }
 
-/* teste2 */
+/* zoom */
 .zoom {
 	overflow: hidden;
 }
@@ -621,4 +625,22 @@ legend {
   .itens_top {
     margin-top: 9%;
   }
+}
+
+.card_item {
+  position:relative;
+  top:0;
+  padding:4px;
+  background-color:rgba(243, 243, 243, 0.438);
+  transition: all .2s ease-in-out
+}
+
+.card_item:hover {
+  top:-4px;
+  box-shadow:0 4px 3px #999
+}
+
+.buttons {
+  margin-left: -20px !important;
+  margin-right: -20px !important;
 }

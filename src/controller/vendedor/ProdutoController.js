@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports.listar = async (app, req, res, next) => {
+exports.listar = async (app, req, res, next) => {
   try {
     res.render('vendedor/produto/listar', {
       identification: req.session.loggedin,
@@ -15,7 +15,7 @@ module.exports.listar = async (app, req, res, next) => {
   }
 }
 
-module.exports.listar_datatable = async (app, req, res, next) => {
+exports.listar_datatable = async (app, req, res, next) => {
   try {
     const conn = app.bin.keys();
     const produtoDAO = new app.src.models.vendedor.ProdutoDAO(conn)
@@ -39,7 +39,7 @@ module.exports.listar_datatable = async (app, req, res, next) => {
   }
 }
 
-module.exports.cadastrar = async (app, req, res, next) => {
+exports.cadastrar = async (app, req, res, next) => {
   try {
     const conn = app.bin.keys();
     const categoriasDAO = new app.src.models.vendedor.CategoriasDAO(conn)
@@ -67,7 +67,7 @@ module.exports.cadastrar = async (app, req, res, next) => {
   }
 }
 
-module.exports.editar = async (app, req, res, next) => {
+exports.editar = async (app, req, res, next) => {
   try {
     const conn = app.bin.keys();
     const produtoDAO = new app.src.models.vendedor.ProdutoDAO(conn)
@@ -98,7 +98,7 @@ module.exports.editar = async (app, req, res, next) => {
   }
 }
 
-module.exports.excluir = async (app, req, res, next) => {
+exports.excluir = async (app, req, res, next) => {
   try {
     const conn = app.bin.keys();
     const ProdutoDAO = new app.src.models.vendedor.ProdutoDAO(conn)
@@ -125,7 +125,7 @@ module.exports.excluir = async (app, req, res, next) => {
   }
 }
 
-module.exports.salvar = async (app, req, res, next, mult) => {
+exports.salvar = async (app, req, res, next, mult) => {
   try {
     const data = {
       nome: req.body.produto,

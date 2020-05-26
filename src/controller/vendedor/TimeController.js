@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports.listar = async (app, req, res, next) => {
+exports.listar = async (app, req, res, next) => {
   try {
     res.render('vendedor/times/listar', {
       identification: req.session.loggedin,
@@ -15,7 +15,7 @@ module.exports.listar = async (app, req, res, next) => {
   }
 }
 
-module.exports.listar_datatable = async (app, req, res, next) => {
+exports.listar_datatable = async (app, req, res, next) => {
   try {
     const conn = app.bin.keys();
     const timesDAO = new app.src.models.vendedor.TimesDAO(conn)
@@ -36,7 +36,7 @@ module.exports.listar_datatable = async (app, req, res, next) => {
   }
 }
 
-module.exports.salvar = async (app, req, res, next) => {
+exports.salvar = async (app, req, res, next) => {
   try {
     const data = {
       nome: req.body.nome
@@ -69,7 +69,7 @@ module.exports.salvar = async (app, req, res, next) => {
   }
 }
 
-module.exports.excluir = async (app, req, res, next) => {
+exports.excluir = async (app, req, res, next) => {
   try {
     const conn = app.bin.keys();
     const timesDAO = new app.src.models.vendedor.TimesDAO(conn)

@@ -8,6 +8,7 @@ exports.index = async (app, req, res, next) => {
     url: process.env.URL,
   });
 }
+
 exports.login = async (app, req, res, next) => {
   try {
     res.render('auth/login', {
@@ -115,7 +116,7 @@ exports.salvar = async (app, req, res, next) => {
       cpf: req.body.cpf,
       email: req.body.email,
       senha: hash.generate(req.body.senha),
-      time_id: req.body.time
+      // time_id: req.body.time
     }
 
     const conn = app.bin.keys();
