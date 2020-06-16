@@ -1,4 +1,6 @@
 <% include ../../customs/client/cabecalho %>
+<% if (usuario != 1) { %>
+<% include ./modal %>
       <!-- Menu2 -->
       <div class="menu2 menu_group fixed-top" id="menu2">
         <nav class="navbar navbar-expand-lg navbar-while" id="menupesquisa">
@@ -28,7 +30,6 @@
                       <option value="2">Maiores Preços</option>
                       <option value="3">Mais Relevantes</option>
                       <option selected value="4">Mais Vendidos</option>
-                      <option value="5">Melhor Avaliados</option>
                     </select>
                   </div>
                 </div>
@@ -38,37 +39,20 @@
               </div>
             </fieldset>
             <fieldset>
-              <legend style="text-align: center !important;">Preço</legend>
+              <legend style="text-align: center !important;">Times</legend>
               <div class="row">
                 <div class="col-sm-12">
                   <div class="row">
                     <div class="col-sm-12">
-                      <label class="" id="content-check">
-                        <p class="p-check">Teste Teste Teste Teste</p>
-                        <input type="checkbox"> <!--  checked="checked" -->
+<% if (time.length > 0) { %>
+<% for (var i = 0; i < time.length; i++) { %>
+                      <label id="content-check">
+                        <p class="p-check"><%= time[i].nome %></p>
+                        <input type="checkbox" onclick="filterTime('<%= time[i].id %>')"> <!--  checked="checked" -->
                         <span class="checkmark"></span>
                       </label>
-                    </div>
-                    <div class="col-sm-12">
-                      <label class="" id="content-check">
-                        <p class="p-check">Teste Teste Teste Teste</p>
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                      </label>
-                    </div>
-                    <div class="col-sm-12">
-                      <label class="" id="content-check">
-                        <p class="p-check">Teste Teste Teste Teste</p>
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                      </label>
-                    </div>
-                    <div class="col-sm-12">
-                      <label class="" id="content-check">
-                        <p class="p-check">Teste Teste Teste Teste</p>
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                      </label>
+<% } %>
+<% } %>
                     </div>
                   </div>
                 </div>
@@ -121,7 +105,7 @@
                     <h5 class="card-title"><%= data[i].nome %></h5>
                     <p class="card-text"><%= data[i].descricao %> ....</p>
                     <div class="buttons">
-                      <a class="button2 comprar-button"><i class="fas fa-eye"></i> Visualizar</a>
+                      <a class="button2 comprar-button" onclick="ModalProduct('<%= data[i].id %>')">Visualizar</a>
                       <span class="button2 spanValor">R$ <%= data[i].preco %></span>
                     </div>
                   </div>
@@ -133,7 +117,6 @@
           </div>
         </div>
       </div>
-
       <script>
         $(function() {
           cliqueMenu();
@@ -165,5 +148,28 @@
             return false;
           })
         }
+
+        function ModalProduct(id) {
+          $.ajax({
+            method: "GET",
+            url: `<%= url %>/produto/${id}`,
+          }).done(function(resposta) {
+            $('#modalProdutos').modal('show');
+            $("#url1").attr("src", `<%= url %>/uploads/${resposta[0].url1}`);
+            $("#url2").attr("src", `<%= url %>/uploads/${resposta[0].url2}`);
+            $("#url3").attr("src", `<%= url %>/uploads/${resposta[0].url3}`);
+            $("#nome_produto").html(`${resposta[0].nome}`);
+            $("#preco_produto").html(`R$ ${resposta[0].preco}`);
+            $("#descricao_produto").html(`${resposta[0].descricao}`);
+            $("#submit_compra").html(`<button type="button" class="btn btn-success" onclick="addCarrinho(${resposta[0].id})">
+              <i class="fas fa-cart-plus"></i> Comprar
+            </button>`)
+          })
+        }
+
+        function filterTime(id) {
+          console.log(id)
+        }
       </script>
+<% } %>
 <% include ../../customs/client/rodape %>

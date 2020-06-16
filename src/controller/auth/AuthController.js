@@ -5,6 +5,8 @@ exports.index = async (app, req, res, next) => {
   res.render('index', {
     identification: req.session.loggedin,
     usuario: req.session.usuario,
+    cpf: req.session.cpf,
+    cpf: req.session.cpf,
     url: process.env.URL,
   });
 }
@@ -14,6 +16,7 @@ exports.login = async (app, req, res, next) => {
     res.render('auth/login', {
       identification: req.session.loggedin,
       usuario: req.session.usuario,
+      cpf: req.session.cpf,
       url: process.env.URL,
       erros: {}
     })
@@ -62,6 +65,7 @@ exports.entrar = async (app, req, res, next) => {
             res.render('auth/login', {
               identification: req.session.loggedin,
               usuario: req.session.usuario,
+              cpf: req.session.cpf,
               url: process.env.URL,
               erros: { validacao: 'CPF ou Senha inválidas!' }
             })
@@ -74,6 +78,7 @@ exports.entrar = async (app, req, res, next) => {
         res.render('auth/login', {
           identification: req.session.loggedin,
           usuario: req.session.usuario,
+          cpf: req.session.cpf,
           url: process.env.URL,
           erros: { validacao: 'CPF ou Senha Incorreto!' }
         })
@@ -95,6 +100,7 @@ exports.cadastrar = async (app, req, res, next) => {
         res.render('auth/cadastrar', {
           identification: req.session.loggedin,
           usuario: req.session.usuario,
+          cpf: req.session.cpf,
           url: process.env.URL,
           times: times,
           erros: {},
@@ -136,6 +142,7 @@ exports.salvar = async (app, req, res, next) => {
             res.render('auth/cadastrar', {
               identification: req.session.loggedin,
               usuario: req.session.usuario,
+              cpf: req.session.cpf,
               url: process.env.URL,
               times: times,
               erros: {cpf: "CPF informado já está cadastrado!"},
@@ -150,6 +157,7 @@ exports.salvar = async (app, req, res, next) => {
         res.render('auth/cadastrar', {
           identification: req.session.loggedin,
           usuario: req.session.usuario,
+          cpf: req.session.cpf,
           url: process.env.URL,
           times: times,
           erros: {validacao: "Campos 'Senha', 'Confirmação' estão diferentes!"},

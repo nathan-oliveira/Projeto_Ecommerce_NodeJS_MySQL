@@ -1,11 +1,20 @@
 'use strict'
 
+exports.addCarrinho = async (app, req, res, next) => {
+  try {
+    
+  } catch (error) {
+    next(error);
+  }
+}
+
 exports.carrinho = async (app, req, res, next) => {
   try {
     res.render('client/carrinho/carrinho', {
       identification: req.session.loggedin,
       url: process.env.URL,
       usuario: req.session.usuario,
+      cpf: req.session.cpf,
       data: {}
     })
   } catch (error) {
@@ -13,7 +22,7 @@ exports.carrinho = async (app, req, res, next) => {
   }
 }
 
-exports.carrinho_datatable = async (app, req, res, next) => { 
+exports.carrinho_datatable = async (app, req, res, next) => {
   try {
     const conn = app.bin.keys();
   } catch (error) {
@@ -26,6 +35,7 @@ exports.minhasCompras = async (app, req, res, next) => {
     res.render('client/minhasCompras/minhasCompras', {
       identification: req.session.loggedin,
       usuario: req.session.usuario,
+      cpf: req.session.cpf,
       url: process.env.URL,
       data: {}
     })
@@ -42,6 +52,7 @@ exports.perfil = async (app, req, res, next) => {
       res.render('client/perfil/perfil', {
         identification: req.session.loggedin,
         usuario: req.session.usuario,
+        cpf: req.session.cpf,
         url: process.env.URL,
         data: {}
       })
@@ -56,6 +67,7 @@ exports.contaEditar = async (app, req, res, next) => {
     res.render('client/perfil/editar', {
       identification: req.session.loggedin,
       usuario: req.session.usuario,
+      cpf: req.session.cpf,
       url: process.env.URL,
       data: {}
     })

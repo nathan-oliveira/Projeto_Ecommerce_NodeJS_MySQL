@@ -6,6 +6,7 @@ exports.listar = async (app, req, res, next) => {
       identification: req.session.loggedin,
       url: process.env.URL,
       usuario: req.session.usuario,
+      cpf: req.session.cpf,
       checker: 0,
       erros: {},
       data: {}
@@ -58,6 +59,7 @@ exports.salvar = async (app, req, res, next) => {
           identification: req.session.loggedin,
           url: process.env.URL,
           usuario: req.session.usuario,
+          cpf: req.session.cpf,
           checker: 0,
           erros: { existe: `Time "${req.body.nome}" já está cadastrado!` },
           data: req.body

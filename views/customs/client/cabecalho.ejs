@@ -45,9 +45,6 @@
                     <a class="nav-link"  href="<%= url %>/minha-conta">Minha Conta</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link"  href="<%= url %>/produtos"><i class="fas fa-store"></i> Produtos</a>
-                  </li>
-                  <li class="nav-item">
                     <a class="nav-link"  href="<%= url %>/minhas-compras">Minhas Compras</a>
                   </li>
                 <% } %>
@@ -75,7 +72,7 @@
             </div>
             <div class="collapse navbar-collapse" id="account">
               <ul class="navbar-nav ml-auto">
-                <% if(identification === true && usuario === 0) { %>
+                <% if(usuario != 1) { %>
                   <li class="nav-item">
                     <a class="nav-link" href="<%= url %>/carrinho"><i class="fa fa-shopping-cart fa-1x" aria-hidden="true"></i>&nbsp;Carrinho</a>
                   </li>

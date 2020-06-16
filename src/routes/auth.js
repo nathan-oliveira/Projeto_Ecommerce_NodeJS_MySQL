@@ -1,10 +1,6 @@
 'use strict'
 
 module.exports = (app) => {
-    app.get('/', (req, res, next) => {
-        app.src.controller.auth.AuthController.index(app, req, res, next)
-    })
-
     app.get('/login', (req, res, next) => {
         app.src.controller.auth.AuthController.login(app, req, res, next)
     })

@@ -10,6 +10,7 @@ exports.listar = async (app, req, res, next) => {
       res.render('exemplo/listar', {
         identificadao: req.session.loggedin,
         usuario: req.session.usuario,
+        cpf: req.session.cpf,
         url: process.env.URL,
         data: result
       })
